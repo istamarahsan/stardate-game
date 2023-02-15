@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://_temp/_resource_save_test.gd" type="Script" id=1]
+
+[node name="SaveLoadTest" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VFlowContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 483.0
+margin_top = 264.0
+margin_right = 541.0
+margin_bottom = 336.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Save" type="Button" parent="CenterContainer/VFlowContainer"]
+margin_right = 58.0
+margin_bottom = 20.0
+text = "Save"
+
+[node name="Text" type="LineEdit" parent="CenterContainer/VFlowContainer"]
+unique_name_in_owner = true
+margin_top = 24.0
+margin_right = 58.0
+margin_bottom = 48.0
+
+[node name="Load" type="Button" parent="CenterContainer/VFlowContainer"]
+margin_top = 52.0
+margin_right = 58.0
+margin_bottom = 72.0
+text = "Load"
+
+[connection signal="button_up" from="CenterContainer/VFlowContainer/Save" to="." method="_on_Save_button_up"]
+[connection signal="button_up" from="CenterContainer/VFlowContainer/Load" to="." method="_on_Load_button_up"]
