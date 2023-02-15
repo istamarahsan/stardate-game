@@ -3,10 +3,11 @@ extends Control
 signal end_turn_requested()
 signal event_option_selected()
 
-func set_hull(proportion: float) -> void:
+func set_hull(p: Proportion) -> void:
+	
 	pass
 	
-func set_energy(proportion: float) -> void:
+func set_energy(p: Proportion) -> void:
 	pass
 
 func set_credits(value: int) -> void:
