@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "CelestialBody",
+"language": "GDScript",
+"path": "res://models/CelestialBody.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -20,13 +25,20 @@ _global_script_classes=[ {
 "path": "res://Proportion.gd"
 }, {
 "base": "Resource",
+"class": "SystemDetails",
+"language": "GDScript",
+"path": "res://models/SystemDetails.gd"
+}, {
+"base": "Resource",
 "class": "TestResource",
 "language": "GDScript",
 "path": "res://_temp/TestResource.gd"
 } ]
 _global_script_class_icons={
+"CelestialBody": "",
 "GitAPI": "",
 "Proportion": "",
+"SystemDetails": "",
 "TestResource": ""
 }
 
