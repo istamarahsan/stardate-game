@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://demo_no_arch/demo_no_arch.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="System1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "System 1"
+
+[node name="System2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "System 2"
+
+[node name="System3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "System 3"
+
+[node name="SystemDetails" type="Panel" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SystemDetails"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="SystemDisplay" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 532.0
+
+[node name="SystemNameV" type="Label" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
+unique_name_in_owner = true
+margin_right = 1004.0
+margin_bottom = 14.0
+align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
+margin_top = 18.0
+margin_right = 1004.0
+margin_bottom = 32.0
+text = "Celestial Bodies In System:"
+align = 1
+
+[node name="SystemBodies" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
+unique_name_in_owner = true
+margin_top = 36.0
+margin_right = 1004.0
+margin_bottom = 36.0
+custom_constants/separation = 20
+
+[node name="PerformActivity" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 580.0
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "Perform Activity \"None\""
+
+[connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System1" to="." method="_on_System1_button_up"]
+[connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System2" to="." method="_on_System2_button_up"]
+[connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System3" to="." method="_on_System3_button_up"]
