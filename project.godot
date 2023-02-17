@@ -14,32 +14,32 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://models/CelestialBody.gd"
 }, {
+"base": "Reference",
+"class": "Enums",
+"language": "GDScript",
+"path": "res://Enums.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
+"base": "Resource",
+"class": "PlanetarySystem",
+"language": "GDScript",
+"path": "res://models/PlanetarySystem.gd"
+}, {
 "base": "Object",
 "class": "Proportion",
 "language": "GDScript",
 "path": "res://Proportion.gd"
-}, {
-"base": "Resource",
-"class": "SystemDetails",
-"language": "GDScript",
-"path": "res://models/SystemDetails.gd"
-}, {
-"base": "Resource",
-"class": "TestResource",
-"language": "GDScript",
-"path": "res://_temp/TestResource.gd"
 } ]
 _global_script_class_icons={
 "CelestialBody": "",
+"Enums": "",
 "GitAPI": "",
-"Proportion": "",
-"SystemDetails": "",
-"TestResource": ""
+"PlanetarySystem": "",
+"Proportion": ""
 }
 
 [application]

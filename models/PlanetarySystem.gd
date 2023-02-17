@@ -1,5 +1,5 @@
 extends Resource
-class_name SystemDetails
+class_name PlanetarySystem
 
 export(String) var name
 export(Resource) var central_body
