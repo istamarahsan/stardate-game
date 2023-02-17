@@ -5,13 +5,27 @@ var body_display_scene: PackedScene = preload("res://demo_no_arch/demo_body_disp
 onready var system_name_label: Label = get_node("%SystemNameV")
 onready var bodies_container: Container = get_node("%SystemBodies")
 onready var activity_button: Button = get_node("%PerformActivity")
+onready var hull_label: Label = get_node("%HullLabel")
+onready var energy_label: Label = get_node("%EnergyLabel")
+onready var credits_label: Label = get_node("%CreditsLabel")
 
 var system_1: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_1.tres")
 var system_2: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_2.tres")
 var system_3: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_3.tres")
 
+
+
+var selected_body: CelestialBody
+
+var hull: int = 50
+var energy: int = 50
+var credits: int = 50
+
 func _ready() -> void:
 	_move_to_system(system_1)
+	hull_label.text = "HULL: " + str(hull)
+	energy_label.text = "ENERGY: " + str(energy)
+	credits_label.text = "CREDITS: " + str(credits)
 	pass
 
 func _on_System1_button_up() -> void:
@@ -39,4 +53,30 @@ func _move_to_system(system: PlanetarySystem) -> void:
 		body_display.connect("selected", self, "_on_select_body", [body])
 
 func _on_select_body(body: CelestialBody) -> void:
+	selected_body = body
 	activity_button.text = "Perform Activity: " + Enums.Activity_to_str(body.activity).to_upper()
+
+func _on_PerformActivity_button_up() -> void:
+	match selected_body.activity:
+		Enums.Activity.Mine:
+			hull -= 2
+			energy += 3
+			hull_label.text = "HULL: " + str(hull)
+			energy_label.text = "ENERGY: " + str(energy)
+		Enums.Activity.Repair:
+			credits -= 5
+			hull += 3
+			credits_label.text = "CREDITS: " + str(credits)
+			hull_label.text = "HULL: " + str(hull)
+		Enums.Activity.Trade:
+			energy -= 5
+			credits += 6
+			energy_label.text = "ENERGY: " + str(energy)
+			credits_label.text = "CREDITS: " + str(credits)
+		Enums.Activity.Survey:
+			energy -= 2
+			energy_label.text = "ENERGY: " + str(energy)
+		Enums.Activity.Story:
+			pass
+		Enums.Activity.None:
+			pass

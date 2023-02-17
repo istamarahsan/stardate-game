@@ -11,9 +11,46 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 20.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 21.0
+
+[node name="HullLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 334.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "HULL: "
+align = 1
+
+[node name="EnergyLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 338.0
+margin_right = 672.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "ENERGY: "
+align = 1
+
+[node name="CreditsLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 676.0
+margin_right = 1010.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "CREDITS: "
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 52.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
 margin_right = 1024.0
@@ -41,7 +78,7 @@ size_flags_horizontal = 3
 text = "System 3"
 
 [node name="SystemDetails" type="Panel" parent="VBoxContainer"]
-margin_top = 24.0
+margin_top = 56.0
 margin_right = 1024.0
 margin_bottom = 576.0
 size_flags_vertical = 3
@@ -56,7 +93,7 @@ margin_bottom = -10.0
 
 [node name="SystemDisplay" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer"]
 margin_right = 1004.0
-margin_bottom = 532.0
+margin_bottom = 500.0
 
 [node name="SystemNameV" type="Label" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
 unique_name_in_owner = true
@@ -88,3 +125,4 @@ text = "Perform Activity \"None\""
 [connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System1" to="." method="_on_System1_button_up"]
 [connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System2" to="." method="_on_System2_button_up"]
 [connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System3" to="." method="_on_System3_button_up"]
+[connection signal="button_up" from="VBoxContainer/PerformActivity" to="." method="_on_PerformActivity_button_up"]
