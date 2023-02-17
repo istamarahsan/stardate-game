@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://models/PlanetarySystem.gd" type="Script" id=1]
+[ext_resource path="res://demo_no_arch/data/world/sol/Earth.tres" type="Resource" id=2]
+[ext_resource path="res://demo_no_arch/data/world/sol/Venus.tres" type="Resource" id=3]
+[ext_resource path="res://demo_no_arch/data/world/sol/Mars.tres" type="Resource" id=4]
+[ext_resource path="res://demo_no_arch/data/world/sol/Luna.tres" type="Resource" id=5]
+[ext_resource path="res://demo_no_arch/data/world/sol/Sol.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+name = "Sol"
+central_body = ExtResource( 6 )
+bodies = [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]

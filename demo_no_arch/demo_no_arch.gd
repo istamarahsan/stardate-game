@@ -8,18 +8,19 @@ onready var activity_button: Button = get_node("%PerformActivity")
 onready var hull_label: Label = get_node("%HullLabel")
 onready var energy_label: Label = get_node("%EnergyLabel")
 onready var credits_label: Label = get_node("%CreditsLabel")
+onready var event_popup: EventPopup = $EventPopup
 
-var system_1: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_1.tres")
-var system_2: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_2.tres")
-var system_3: PlanetarySystem = preload("res://demo_no_arch/data/demo_system_3.tres")
-
-
+var system_1: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_1.tres")
+var system_2: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_2.tres")
+var system_3: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_3.tres")
+var test_event: Event = preload("res://demo_no_arch/data/events/test_event.tres")
 
 var selected_body: CelestialBody
 
 var hull: int = 50
 var energy: int = 50
 var credits: int = 50
+var active_tags: Dictionary = {}
 
 func _ready() -> void:
 	_move_to_system(system_1)
@@ -80,3 +81,16 @@ func _on_PerformActivity_button_up() -> void:
 			pass
 		Enums.Activity.None:
 			pass
+	if randi() % 2 == 1:
+		event_popup.show_event(test_event)
+		event_popup.popup_centered()
+
+func _on_EventPopup_option_selected(option: EventOption) -> void:
+	self.hull += option.add_hull
+	hull_label.text = "HULL: " + str(hull)
+	self.energy += option.add_energy
+	energy_label.text = "ENERGY: " + str(energy)
+	self.credits += option.add_credits
+	credits_label.text = "CREDITS: " + str(credits)
+	for tag_to_add in option.tags_added:
+		active_tags[tag_to_add] = true

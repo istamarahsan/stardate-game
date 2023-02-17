@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://models/EventOption.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+text = "the bad option"
+add_hull = -5
+add_energy = -5
+add_credits = -5
+tags_added = [ "chose_bad" ]
