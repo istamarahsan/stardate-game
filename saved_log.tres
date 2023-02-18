@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=12 format=2]
+[gd_resource type="Resource" load_steps=19 format=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends LogEntry
@@ -14,7 +14,51 @@ func _init(target_body_id: String = \"\") -> void:
 script = SubResource( 1 )
 target_body_id = "sol"
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="Resource" id=3]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=4]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=5]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=6]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=7]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=8]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=9]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=10]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=11]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=12]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=13]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="GDScript" id=14]
 script/source = "extends LogEntry
 class_name EventOccurred
 
@@ -26,38 +70,21 @@ func _init(event_id: String = \"\", selected_option_id: String = \"\") -> void:
 	self.selected_option_id = selected_option_id
 "
 
-[sub_resource type="Resource" id=4]
-script = SubResource( 3 )
+[sub_resource type="Resource" id=15]
+script = SubResource( 14 )
 event_id = "test_event_1"
 selected_option_id = "test_event_1_option_1"
 
-[sub_resource type="Resource" id=5]
+[sub_resource type="Resource" id=16]
 script = SubResource( 1 )
 target_body_id = "sol"
 
-[sub_resource type="Resource" id=6]
-script = SubResource( 1 )
-target_body_id = "sol"
-
-[sub_resource type="Resource" id=7]
-script = SubResource( 3 )
+[sub_resource type="Resource" id=17]
+script = SubResource( 14 )
 event_id = "test_event_1"
 selected_option_id = "test_event_1_option_2"
 
-[sub_resource type="Resource" id=8]
-script = SubResource( 1 )
-target_body_id = "sol"
-
-[sub_resource type="Resource" id=9]
-script = SubResource( 1 )
-target_body_id = "sol"
-
-[sub_resource type="Resource" id=10]
-script = SubResource( 3 )
-event_id = "test_event_1"
-selected_option_id = "test_event_1_option_2"
-
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=10]
 script/source = "extends Resource
 class_name SavedLog
 
@@ -71,5 +98,5 @@ func _init(entries: Array = []) -> void:
 "
 
 [resource]
-script = SubResource( 11 )
-entries = [ SubResource( 2 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]
+script = SubResource( 10 )
+entries = [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ]

@@ -12,6 +12,7 @@ onready var event_popup: EventPopup = $EventPopup
 onready var system_1_button: Button = get_node("%System1")
 onready var system_2_button: Button = get_node("%System2")
 onready var system_3_button: Button = get_node("%System3")
+onready var logs_container: Container = get_node("%LogsContainer")
 
 var system_1: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_1.tres")
 var system_2: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_2.tres")
@@ -87,8 +88,12 @@ func _on_PerformActivity_button_up() -> void:
 			pass
 		Enums.Activity.None:
 			pass
-	ship_log.append(ActivityPerformed.new(selected_body.id))
-	if randi() % 2 == 1:
+	var new_log := ActivityPerformed.new(selected_body.id)
+	ship_log.append(new_log)
+	var log_label = _create_label_for_log(new_log)
+	logs_container.add_child(log_label)
+	logs_container.move_child(log_label, 0)
+	if randi() % 10 == 1:
 		event_popup.show_event(test_event)
 		event_popup.popup_centered()
 
@@ -101,8 +106,29 @@ func _on_EventPopup_option_selected(option: EventOption) -> void:
 	credits_label.text = "CREDITS: " + str(credits)
 	for tag_to_add in option.tags_added:
 		active_tags[tag_to_add] = true
-	ship_log.append(EventOccurred.new(test_event.id, option.id))
-
+	var new_log := EventOccurred.new(test_event.id, option.id)
+	ship_log.append(new_log)
+	var log_label = _create_label_for_log(new_log)
+	logs_container.add_child(log_label)
+	logs_container.move_child(log_label, 0)
 
 func _on_SaveButton_button_up() -> void:
 	ResourceSaver.save("res://saved_log.tres", SavedLog.new(ship_log), ResourceSaver.FLAG_BUNDLE_RESOURCES)
+
+func _create_label_for_log(entry: LogEntry) -> Label:
+	var label: Label = Label.new()
+	label.text = "(" + str(ship_log.size()) + ") "
+	if "event_id" in entry and "selected_option_id" in entry:
+		label.text += \
+			"[EVENT_OCCURRED] " + \
+			"event: " + \
+			entry.event_id + \
+			" | " + \
+			"selected_option: " + \
+			entry.selected_option_id
+	elif "target_body_id" in entry:
+		label.text += \
+			"[ACTIVITY_PERFORMED] " + \
+			"target body: " + \
+			entry.target_body_id
+	return label
