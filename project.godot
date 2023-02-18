@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Simulation.gd"
 }, {
+"base": "Control",
+"class": "Terminal",
+"language": "GDScript",
+"path": "res://Terminal.gd"
+}, {
 "base": "Command",
 "class": "TravelToSystem",
 "language": "GDScript",
@@ -128,6 +133,7 @@ _global_script_class_icons={
 "SavedLog": "",
 "SelectEventOption": "",
 "Simulation": "",
+"Terminal": "",
 "TravelToSystem": "",
 "TraveledToSystem": ""
 }
