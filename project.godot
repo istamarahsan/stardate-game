@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://models/CelestialBody.gd"
 }, {
-"base": "Reference",
+"base": "Object",
 "class": "Command",
 "language": "GDScript",
 "path": "res://commands/Command.gd"
@@ -89,10 +89,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://models/logs/SavedLog.gd"
 }, {
+"base": "Command",
+"class": "SelectEventOption",
+"language": "GDScript",
+"path": "res://commands/SelectEventOption.gd"
+}, {
 "base": "Object",
 "class": "Simulation",
 "language": "GDScript",
 "path": "res://Simulation.gd"
+}, {
+"base": "Command",
+"class": "TravelToSystem",
+"language": "GDScript",
+"path": "res://commands/TravelToSystem.gd"
 }, {
 "base": "LogEntry",
 "class": "TraveledToSystem",
@@ -116,7 +126,9 @@ _global_script_class_icons={
 "PlanetarySystem": "",
 "Proportion": "",
 "SavedLog": "",
+"SelectEventOption": "",
 "Simulation": "",
+"TravelToSystem": "",
 "TraveledToSystem": ""
 }
 
