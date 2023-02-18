@@ -1,7 +1,7 @@
 extends Control
 class_name Terminal
 
-signal command()
+signal command(commmand)
 
 func set_hull(p: Proportion) -> void:
 	pass

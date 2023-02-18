@@ -34,12 +34,12 @@ func set_credits(value: int) -> void:
 
 func set_logs(entries: Array) -> void:
 	for child in logs_container.get_children():
-		child.queue_free
+		child.queue_free()
 		
 	for i in entries.size():
 		var entry = entries[i]
 		var label := Label.new()
-		label.text = ("%. " + _create_display_string_for_log_entry(entry)) % str(i)
+		label.text = str(i) + ". " + _create_display_string_for_log_entry(entry)
 		logs_container.add_child(label)
 		logs_container.move_child(label, 0)
 
@@ -76,7 +76,7 @@ func _create_display_string_for_log_entry(entry: LogEntry) -> String:
 			entry.target_body_id
 	elif "target_system_id" in entry:
 		return \
-			"[TRAVELED_TO_SYSTEM]" + \
+			"[TRAVELED_TO_SYSTEM] " + \
 			"target system: " + \
 			entry.target_system_id
 	else:
@@ -87,6 +87,7 @@ func _on_select_body(body: CelestialBody) -> void:
 	activity_button.text = "Perform Activity: " + Enums.Activity_to_str(body.activity).to_upper()
 
 func _on_EventPopup_option_selected(option: EventOption) -> void:
+	
 	var command := SelectEventOption.new(active_event.id, option.id)
 	emit_signal("command", command)
 

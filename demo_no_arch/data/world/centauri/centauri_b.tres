@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-id = "alpha_centauri_a"
+id = "alpha_centauri_b"
 name = "Alpha Centauri B"
 description = "One of three stars in a trinary system"
 activity = 0
