@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://models/CelestialBody.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "alpha_centauri_a"
+name = "Alpha Centauri A"
+description = "One of three stars in a trinary system"
+activity = 0

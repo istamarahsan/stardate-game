@@ -9,6 +9,9 @@ onready var hull_label: Label = get_node("%HullLabel")
 onready var energy_label: Label = get_node("%EnergyLabel")
 onready var credits_label: Label = get_node("%CreditsLabel")
 onready var event_popup: EventPopup = $EventPopup
+onready var system_1_button: Button = get_node("%System1")
+onready var system_2_button: Button = get_node("%System2")
+onready var system_3_button: Button = get_node("%System3")
 
 var system_1: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_1.tres")
 var system_2: PlanetarySystem = preload("res://demo_no_arch/data/world/demo_system_2.tres")
@@ -28,19 +31,18 @@ func _ready() -> void:
 	hull_label.text = "HULL: " + str(hull)
 	energy_label.text = "ENERGY: " + str(energy)
 	credits_label.text = "CREDITS: " + str(credits)
-	pass
+	system_1_button.text = system_1.name
+	system_2_button.text = system_2.name
+	system_3_button.text = system_3.name
 
 func _on_System1_button_up() -> void:
 	_move_to_system(system_1)
-	pass # Replace with function body.
 
 func _on_System2_button_up() -> void:
 	_move_to_system(system_2)
-	pass # Replace with function body.
 
 func _on_System3_button_up() -> void:
 	_move_to_system(system_3)
-	pass # Replace with function body.
 
 func _move_to_system(system: PlanetarySystem) -> void:
 	for child in bodies_container.get_children():

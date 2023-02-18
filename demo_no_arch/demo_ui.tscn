@@ -59,12 +59,14 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="System1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_right = 338.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "System 1"
 
 [node name="System2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_left = 342.0
 margin_right = 681.0
 margin_bottom = 20.0
@@ -72,6 +74,7 @@ size_flags_horizontal = 3
 text = "System 2"
 
 [node name="System3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_left = 685.0
 margin_right = 1024.0
 margin_bottom = 20.0
