@@ -102,3 +102,7 @@ func _on_EventPopup_option_selected(option: EventOption) -> void:
 	for tag_to_add in option.tags_added:
 		active_tags[tag_to_add] = true
 	ship_log.append(EventOccurred.new(test_event.id, option.id))
+
+
+func _on_SaveButton_button_up() -> void:
+	ResourceSaver.save("res://saved_log.tres", SavedLog.new(ship_log), ResourceSaver.FLAG_BUNDLE_RESOURCES)

@@ -1,2 +1,2 @@
-extends Object
+extends Resource
 class_name LogEntry

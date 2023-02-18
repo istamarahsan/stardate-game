@@ -84,7 +84,7 @@ text = "System 3"
 [node name="SystemDetails" type="Panel" parent="VBoxContainer"]
 margin_top = 56.0
 margin_right = 1024.0
-margin_bottom = 576.0
+margin_bottom = 552.0
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SystemDetails"]
@@ -97,7 +97,7 @@ margin_bottom = -10.0
 
 [node name="SystemDisplay" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer"]
 margin_right = 1004.0
-margin_bottom = 500.0
+margin_bottom = 476.0
 
 [node name="SystemNameV" type="Label" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
 unique_name_in_owner = true
@@ -115,7 +115,7 @@ align = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
 margin_top = 36.0
 margin_right = 1004.0
-margin_bottom = 500.0
+margin_bottom = 476.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -127,10 +127,16 @@ custom_constants/separation = 20
 
 [node name="PerformActivity" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
+margin_top = 556.0
+margin_right = 1024.0
+margin_bottom = 576.0
+text = "Perform Activity \"None\""
+
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
 margin_top = 580.0
 margin_right = 1024.0
 margin_bottom = 600.0
-text = "Perform Activity \"None\""
+text = "Save To File"
 
 [node name="EventPopup" parent="." instance=ExtResource( 2 )]
 
@@ -138,4 +144,5 @@ text = "Perform Activity \"None\""
 [connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System2" to="." method="_on_System2_button_up"]
 [connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/System3" to="." method="_on_System3_button_up"]
 [connection signal="button_up" from="VBoxContainer/PerformActivity" to="." method="_on_PerformActivity_button_up"]
+[connection signal="button_up" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_button_up"]
 [connection signal="option_selected" from="EventPopup" to="." method="_on_EventPopup_option_selected"]

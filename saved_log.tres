@@ -1,0 +1,75 @@
+[gd_resource type="Resource" load_steps=12 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends LogEntry
+class_name ActivityPerformed
+
+export(String) var target_body_id: String
+
+func _init(target_body_id: String = \"\") -> void:
+	self.target_body_id = target_body_id
+"
+
+[sub_resource type="Resource" id=2]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends LogEntry
+class_name EventOccurred
+
+export(String) var event_id: String
+export(String) var selected_option_id: String
+
+func _init(event_id: String = \"\", selected_option_id: String = \"\") -> void:
+	self.event_id = event_id
+	self.selected_option_id = selected_option_id
+"
+
+[sub_resource type="Resource" id=4]
+script = SubResource( 3 )
+event_id = "test_event_1"
+selected_option_id = "test_event_1_option_1"
+
+[sub_resource type="Resource" id=5]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=6]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=7]
+script = SubResource( 3 )
+event_id = "test_event_1"
+selected_option_id = "test_event_1_option_2"
+
+[sub_resource type="Resource" id=8]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=9]
+script = SubResource( 1 )
+target_body_id = "sol"
+
+[sub_resource type="Resource" id=10]
+script = SubResource( 3 )
+event_id = "test_event_1"
+selected_option_id = "test_event_1_option_2"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Resource
+class_name SavedLog
+
+export(Array) var entries: Array
+
+func _init(entries: Array = []) -> void:
+	self.entries = []
+	for entry in entries:
+		if entry is LogEntry:
+			self.entries.append(entry)
+"
+
+[resource]
+script = SubResource( 11 )
+entries = [ SubResource( 2 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]
