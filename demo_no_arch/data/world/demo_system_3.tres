@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "babylon"
 name = "Babylon"
 bodies = [  ]

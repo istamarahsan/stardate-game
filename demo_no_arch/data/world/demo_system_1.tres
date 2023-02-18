@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "sol"
 name = "Sol"
 central_body = ExtResource( 6 )
 bodies = [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]

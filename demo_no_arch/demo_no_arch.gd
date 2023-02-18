@@ -21,6 +21,7 @@ var hull: int = 50
 var energy: int = 50
 var credits: int = 50
 var active_tags: Dictionary = {}
+var ship_log: Array = []
 
 func _ready() -> void:
 	_move_to_system(system_1)
@@ -58,6 +59,9 @@ func _on_select_body(body: CelestialBody) -> void:
 	activity_button.text = "Perform Activity: " + Enums.Activity_to_str(body.activity).to_upper()
 
 func _on_PerformActivity_button_up() -> void:
+	if selected_body == null: 
+		return
+		
 	match selected_body.activity:
 		Enums.Activity.Mine:
 			hull -= 2
@@ -81,6 +85,7 @@ func _on_PerformActivity_button_up() -> void:
 			pass
 		Enums.Activity.None:
 			pass
+	ship_log.append(ActivityPerformed.new(selected_body.id))
 	if randi() % 2 == 1:
 		event_popup.show_event(test_event)
 		event_popup.popup_centered()
@@ -94,3 +99,4 @@ func _on_EventPopup_option_selected(option: EventOption) -> void:
 	credits_label.text = "CREDITS: " + str(credits)
 	for tag_to_add in option.tags_added:
 		active_tags[tag_to_add] = true
+	ship_log.append(EventOccurred.new(test_event.id, option.id))

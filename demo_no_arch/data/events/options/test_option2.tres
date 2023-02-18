@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "test_event_1_option_2"
 text = "the bad option"
 add_hull = -5
 add_energy = -5

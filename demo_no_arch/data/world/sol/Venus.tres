@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "venus"
 name = "Venus"
 description = "2nd from the sun"
 activity = 3

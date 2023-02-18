@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "earth"
 name = "Earth"
 description = "earthplanet"
 activity = 4

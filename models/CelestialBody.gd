@@ -11,11 +11,13 @@ enum ActivityType {
 	None = 5
 }
 
+export(String) var id: String
 export(String) var name: String
 export(String) var description: String
 export(ActivityType) var activity: int
 
-func _init(name: String = "", description: String = "", activity: int = ActivityType.None) -> void:
+func _init(id: String = "", name: String = "", description: String = "", activity: int = ActivityType.None) -> void:
+	self.id = id
 	self.name = name
 	self.description = description
 	self.activity = activity

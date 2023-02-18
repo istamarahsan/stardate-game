@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "test_event_1"
 title = "TEST_EVENT"
 text = "this event is a test yey it showed up very cool."
 options = [ ExtResource( 2 ), ExtResource( 3 ) ]
