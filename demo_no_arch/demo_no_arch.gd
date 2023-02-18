@@ -38,12 +38,27 @@ func _ready() -> void:
 
 func _on_System1_button_up() -> void:
 	_move_to_system(system_1)
+	var new_log = TraveledToSystem.new(system_1.id)
+	ship_log.append(new_log)
+	var log_label = _create_label_for_log(new_log)
+	logs_container.add_child(log_label)
+	logs_container.move_child(log_label, 0)
 
 func _on_System2_button_up() -> void:
 	_move_to_system(system_2)
+	var new_log = TraveledToSystem.new(system_2.id)
+	ship_log.append(new_log)
+	var log_label = _create_label_for_log(new_log)
+	logs_container.add_child(log_label)
+	logs_container.move_child(log_label, 0)
 
 func _on_System3_button_up() -> void:
 	_move_to_system(system_3)
+	var new_log = TraveledToSystem.new(system_3.id)
+	ship_log.append(new_log)
+	var log_label = _create_label_for_log(new_log)
+	logs_container.add_child(log_label)
+	logs_container.move_child(log_label, 0)
 
 func _move_to_system(system: PlanetarySystem) -> void:
 	for child in bodies_container.get_children():
@@ -131,4 +146,9 @@ func _create_label_for_log(entry: LogEntry) -> Label:
 			"[ACTIVITY_PERFORMED] " + \
 			"target body: " + \
 			entry.target_body_id
+	elif "target_system_id" in entry:
+		label.text += \
+			"[TRAVELED_TO_SYSTEM]" + \
+			"target system: " + \
+			entry.target_system_id
 	return label

@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "Simulation",
 "language": "GDScript",
 "path": "res://Simulation.gd"
+}, {
+"base": "LogEntry",
+"class": "TraveledToSystem",
+"language": "GDScript",
+"path": "res://models/logs/TraveledToSystem.gd"
 } ]
 _global_script_class_icons={
 "ActivityPerformed": "",
@@ -111,7 +116,8 @@ _global_script_class_icons={
 "PlanetarySystem": "",
 "Proportion": "",
 "SavedLog": "",
-"Simulation": ""
+"Simulation": "",
+"TraveledToSystem": ""
 }
 
 [application]
