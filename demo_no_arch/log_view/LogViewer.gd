@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_LoadButton_button_up() -> void:
 	for child in entries_container.get_children():
 		child.queue_free()
-	var ship_log = ResourceLoader.load("res://saved_log.tres", "SavedLog")
+	var ship_log = ResourceLoader.load("res://saved_log.tres")
 	for entry in ship_log.entries:
 		var label: Label = Label.new()
 		if "event_id" in entry and "selected_option_id" in entry:
