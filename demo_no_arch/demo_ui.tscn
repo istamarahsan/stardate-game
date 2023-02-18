@@ -112,11 +112,17 @@ margin_bottom = 32.0
 text = "Celestial Bodies In System:"
 align = 1
 
-[node name="SystemBodies" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
-unique_name_in_owner = true
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay"]
 margin_top = 36.0
 margin_right = 1004.0
-margin_bottom = 36.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SystemBodies" type="VBoxContainer" parent="VBoxContainer/SystemDetails/MarginContainer/SystemDisplay/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 1004.0
+size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="PerformActivity" type="Button" parent="VBoxContainer"]
