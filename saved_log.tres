@@ -1,0 +1,44 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends LogEntry
+class_name TraveledToSystem
+
+export(String) var target_system_id: String
+
+func _init(target_system_id: String = \"\") -> void:
+	self.target_system_id = target_system_id
+"
+
+[sub_resource type="Resource" id=2]
+script = SubResource( 1 )
+target_system_id = "centauri"
+
+[sub_resource type="Resource" id=3]
+script = SubResource( 1 )
+target_system_id = "sol"
+
+[sub_resource type="Resource" id=4]
+script = SubResource( 1 )
+target_system_id = "babylon"
+
+[sub_resource type="Resource" id=5]
+script = SubResource( 1 )
+target_system_id = "babylon"
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Resource
+class_name SavedLog
+
+export(Array) var entries: Array
+
+func _init(entries: Array = []) -> void:
+	self.entries = []
+	for entry in entries:
+		if entry is LogEntry:
+			self.entries.append(entry)
+"
+
+[resource]
+script = SubResource( 6 )
+entries = [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]

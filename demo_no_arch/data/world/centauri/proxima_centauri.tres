@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = ""
-description = ""
-activities = [  ]
+id = "proxima_centauri"
+name = "Proxima Centauri"
+description = "One of three stars in a trinary system"
+activity = 0
